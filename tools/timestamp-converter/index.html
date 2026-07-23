@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timestamp Converter — Team Analytics Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2300133C'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%230062F1' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 </head>
 
 <body class="bg-slate-50 text-slate-900 min-h-screen font-sans">
@@ -24,7 +25,7 @@
             </label>
             <div class="flex gap-2">
                 <input type="text" id="ts-input" placeholder="e.g. 1735689600, 1735689600000, or 2025-01-01T00:00:00Z"
-                    class="flex-1 bg-slate-50 border border-slate-300 rounded-lg text-sm p-3 text-slate-900 focus:border-[#0062F1] focus:outline-none font-mono">
+                    class="flex-1 bg-slate-50 border border-slate-300 rounded-lg text-sm p-3 text-slate-900 focus:border-[#0062F1] focus:ring-2 focus:ring-[#0062F1]/20 focus:outline-none font-mono">
                 <button onclick="setNow()" class="bg-[#0062F1] hover:bg-[#0050C7] text-white text-sm font-semibold px-4 rounded-lg transition-colors">Now</button>
             </div>
             <p id="parse-error" class="hidden text-xs text-red-600 mt-2"></p>

@@ -20,6 +20,7 @@
             #workspace-dashboard, #workspace-dashboard * { background: white !important; color: black !important; border-color: #ccc !important; }
         }
     </style>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2300133C'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%230062F1' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 </head>
 
 <body class="bg-slate-50 text-slate-900 min-h-screen font-sans">
@@ -176,7 +177,7 @@
                             <button onclick="document.getElementById('compare-file-input').click()" type="button" class="bg-slate-50 border border-slate-300 hover:border-[#0062F1] text-slate-900 text-xs font-medium px-3 py-2 rounded-lg transition-colors">
                                 <span id="compare-snapshot-label">Upload Snapshot</span>
                             </button>
-                            <button id="clear-compare-btn" onclick="clearComparisonSnapshot()" class="hidden bg-slate-50 border border-slate-300 hover:border-red-400 text-slate-600 hover:text-red-500 text-xs font-medium px-2 py-2 rounded-lg transition-colors" title="Clear comparison">
+                            <button id="clear-compare-btn" onclick="clearComparisonSnapshot()" class="hidden bg-slate-50 border border-slate-300 hover:border-red-400 text-slate-600 hover:text-red-500 text-xs font-medium px-2 py-2 rounded-lg transition-colors" title="Clear comparison" aria-label="Clear comparison snapshot">
                                 &times;
                             </button>
                         </div>
@@ -1034,7 +1035,7 @@
                         </button>
                         <span class="text-slate-500">&middot;</span>
                         <span class="text-slate-500">${Number(f.row_count || 0).toLocaleString()} rows</span>
-                        <button onclick="removeDataFile('${f.file_id}')" class="text-red-600 hover:text-red-500 font-bold ml-1" title="Remove">&times;</button>
+                        <button onclick="removeDataFile('${f.file_id}')" class="text-red-600 hover:text-red-500 font-bold ml-1" title="Remove" aria-label="Remove ${escapeHtml(f.filename)}">&times;</button>
                     </span>
                 `;
             }).join('');
@@ -1438,7 +1439,7 @@
                         <span class="text-slate-600 capitalize">${escapeHtml(g.period)}</span>
                         <span class="text-slate-500">&middot;</span>
                         <span class="text-[#0062F1]">${formatValueByMetric(g.target_value, currentMetricTarget)}</span>
-                        <button ${removeAttr} class="text-red-600 hover:text-red-500 font-bold ml-1">&times;</button>
+                        <button ${removeAttr} aria-label="Remove goal ${escapeHtml(g.label)}" class="text-red-600 hover:text-red-500 font-bold ml-1">&times;</button>
                     </span>
                 `;
             }).join('');
@@ -1596,7 +1597,7 @@
             container.innerHTML = names.map(name => `
                 <span class="inline-flex items-center gap-2 bg-white border border-slate-300 rounded-full px-3 py-1.5">
                     <button onclick="loadSavedView('${escapeHtml(name)}')" class="text-[#0062F1] hover:text-[#00133C] font-medium">${escapeHtml(name)}</button>
-                    <button onclick="deleteSavedView('${escapeHtml(name)}')" class="text-red-600 hover:text-red-500 font-bold">&times;</button>
+                    <button onclick="deleteSavedView('${escapeHtml(name)}')" aria-label="Delete saved view ${escapeHtml(name)}" class="text-red-600 hover:text-red-500 font-bold">&times;</button>
                 </span>
             `).join('');
         }
@@ -2674,10 +2675,10 @@
 
                             <div class="flex items-center gap-2">
                                 <span class="text-xs font-semibold px-3 py-1 rounded-full ${cfg.bg}">${cfg.label}</span>
-                                <button onclick="toggleGoalLock('${gp.id}')" title="${locked ? 'Unlock goal' : 'Lock goal'}" class="text-slate-500 hover:text-amber-600 text-sm">
+                                <button onclick="toggleGoalLock('${gp.id}')" title="${locked ? 'Unlock goal' : 'Lock goal'}" aria-label="${locked ? 'Unlock goal' : 'Lock goal'}" class="text-slate-500 hover:text-amber-600 text-sm">
                                     ${locked ? '&#128274;' : '&#128275;'}
                                 </button>
-                                <button ${removeAttr} title="Remove goal" class="text-slate-500 hover:text-red-600 text-sm font-bold">&times;</button>
+                                <button ${removeAttr} title="Remove goal" aria-label="Remove goal ${escapeHtml(gp.label)}" class="text-slate-500 hover:text-red-600 text-sm font-bold">&times;</button>
                             </div>
                         </div>
 

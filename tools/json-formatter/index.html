@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSON Formatter — Team Analytics Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2300133C'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' fill='%230062F1' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
 </head>
 
 <body class="bg-slate-50 text-slate-900 min-h-screen font-sans">
@@ -34,7 +35,7 @@
         </div>
 
         <textarea id="json-input" spellcheck="false"
-            class="w-full h-[28rem] bg-white border border-slate-200 rounded-xl p-4 text-sm font-mono text-slate-800 focus:border-[#0062F1] focus:outline-none resize-y"
+            class="w-full h-[28rem] bg-white border border-slate-200 rounded-xl p-4 text-sm font-mono text-slate-800 focus:border-[#0062F1] focus:ring-2 focus:ring-[#0062F1]/20 focus:outline-none resize-y"
             placeholder='Paste JSON here, e.g. {"hello": "world"}'></textarea>
 
         <div id="error-panel" class="hidden bg-red-50 border border-red-200 rounded-lg p-4 text-sm text-red-500"></div>
