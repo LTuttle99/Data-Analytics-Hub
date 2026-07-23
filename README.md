@@ -16,12 +16,20 @@ and a card on the landing page, and it's a new tool.
 | Format Converter | `tools/converter/` | Converts between CSV, Excel, and JSON |
 | JSON Formatter | `tools/json-formatter/` | Validates, pretty-prints, and minifies JSON |
 | Timestamp Converter | `tools/timestamp-converter/` | Unix/date conversion across timezones, ISO 8601, relative time |
+| Column Statistics | `tools/column-stats/` | Per-column min/max/mean/median/stddev/nulls — instant data profiling, no mapping step |
+| Regex Tester | `tools/regex-tester/` | Live-highlighted pattern matches and capture groups against sample text |
+| Text Diff | `tools/text-diff/` | Line-level diff between two pasted blocks of text |
+| Color Tools | `tools/color-tools/` | Shade palette generator from a base color, plus a WCAG contrast ratio checker |
+| Text Analyzer | `tools/text-analyzer/` | Word/character/sentence counts, reading time, most frequent words |
+| QR Code Generator | `tools/qr-generator/` | Text/URL to a downloadable QR code PNG (via the `qrcode-generator` CDN library) |
 
 `tools/shared/parse.js` holds the CSV/Excel parsing and CSV/Excel/JSON
-download helpers reused by File Diff, Pivot Explorer, Data Cleaner, and
-Format Converter. Data Analyzer keeps its own copy in
-`tools/data-analyzer/js/core.js` so it stays fully self-contained. JSON
-Formatter and Timestamp Converter need no file parsing at all.
+download helpers reused by every file-based tool (File Diff, Pivot Explorer,
+Data Cleaner, Format Converter, Column Statistics). Data Analyzer keeps its
+own copy in `tools/data-analyzer/js/core.js` so it stays fully
+self-contained. The purely text/paste-based tools (JSON Formatter,
+Timestamp Converter, Regex Tester, Text Diff, Color Tools, Text Analyzer)
+need no file parsing at all and have zero shared dependencies.
 
 ## Data Analyzer (`tools/data-analyzer/`)
 
